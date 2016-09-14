@@ -24,6 +24,7 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <link rel="shortcut icon" href="img/pp.jpg"/>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -36,11 +37,11 @@
 
     <form action="cek.php" method="post">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="teks" name="user" class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" name="pass" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -55,7 +56,7 @@
       </div>
     </form>
 
-    
+<img src="img/pp.jpg" title="Powered By Rumah Kreasi" />
 
 <!-- jQuery 2.2.3 -->
 <script src="<?php echo $url;?>plugins/jQuery/jquery-2.2.3.min.js"></script>
