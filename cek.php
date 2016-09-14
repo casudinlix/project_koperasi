@@ -10,7 +10,6 @@ session_start();
   if ($cari->num_rows > 0) {
     $_SESSION['id']=$row['id'];
     $_SESSION['nama']=$row['nama'];
-
     $_SESSION['foto']=$row['foto'];
     echo "<script>window.location.assign('media.php?page=home')</script>";
 }else{
