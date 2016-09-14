@@ -10,9 +10,9 @@
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="<?php echo $url;?>bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"> -->
   <!-- Ionicons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> -->
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo $url;?>dist/css/AdminLTE.min.css">
   <!-- iCheck -->
@@ -32,12 +32,14 @@
     <a href="<?php echo $url;?>"><b>Admin</b>Koperasi</a>
   </div>
   <!-- /.login-logo -->
+
   <div class="login-box-body">
+    <img src="img/pp.jpg" title="Powered By Rumah Kreasi" class="img-circle" height="100px" width="100px"/>
     <p class="login-box-msg">Sign in to start your session</p>
 
     <form action="cek.php" method="post">
       <div class="form-group has-feedback">
-        <input type="teks" name="user" class="form-control" placeholder="Email">
+        <input type="teks" name="user" class="form-control" placeholder="User Name">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
@@ -56,22 +58,13 @@
       </div>
     </form>
 
-<img src="img/pp.jpg" title="Powered By Rumah Kreasi" />
+
 
 <!-- jQuery 2.2.3 -->
 <script src="<?php echo $url;?>plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="<?php echo $url;?>bootstrap/js/bootstrap.min.js"></script>
 <!-- iCheck -->
-<script src="../../plugins/iCheck/icheck.min.js"></script>
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
-  });
-</script>
+
 </body>
 </html>
