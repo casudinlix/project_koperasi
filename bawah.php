@@ -225,3 +225,29 @@
 <script src="<?php echo $url;?>dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo $url;?>dist/js/demo.js"></script>
+<script src="<?php echo $url;?>bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script src="<?php echo $url;?>js/jquery.dataTables.js"></script>
+<script src="<?php echo $url;?>js/dataTables.bootstrap.js"></script>
+<script>
+    $(document).ready(function () {
+        var t = $('#anggota').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": 'modul/anggota/ajax.php',
+            "columns": [
+                {"data": "no_anggota"},
+                {"data": "no_ktp"},
+                {"data": "nama_anggota"},
+                {"data": "jk"},
+                {"data": "tlp"},
+                {"data": "tempat_lahir"},
+                {"data": "ttl"},
+                {"data": "alamat"},
+                {"data": "status"},
+              
+            ],
+            "order": [[1, 'asc']]
+        });
+    });
+</script>

@@ -6,7 +6,12 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="<?php echo $url;?>bootstrap/css/bootstrap.min.css">
-
+  <link rel="stylesheet" type="text/css" href="<?php echo $url;?>css/jquery.dataTables.css">
+  <script type="text/javascript" language="javascript" src="<?php echo $url;?>js/jquery.js"></script>
+  <script src="<?php echo $url;?>js/jquery-1.9.1.min.js" type="text/javascript"></script>
+  <script src="<?php echo $url;?>js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+  <script type="text/javascript" language="javascript" src="<?php echo $url;?>js/jquery.dataTables.js"></script>
+  <link rel="stylesheet" href="<?php echo $url;?>css/dataTables.bootstrap.css"/>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo $url;?>css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -129,7 +134,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../../index.html"><i class="fa fa-user"></i> Pendaftaran Anggota Baru</a></li>
+            <li><a href="?page=anggota"><i class="fa fa-user"></i> Pendaftaran Anggota Baru</a></li>
             </ul>
         </li>
         <li class="treeview">
