@@ -6,13 +6,15 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="<?php echo $url;?>bootstrap/css/bootstrap.min.css">
+
   <!-- Font Awesome -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"> -->
+  <link rel="stylesheet" href="<?php echo $url;?>css/font-awesome.min.css">
   <!-- Ionicons -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> -->
+   <link rel="stylesheet" href="<?php echo $url;?>css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="shortcut icon" href="img/pp.jpg"/>
   <link rel="stylesheet" href="<?php echo $url;?>dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="<?php echo $url;?>bootstrap/css/bootstrap.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo $url;?>dist/css/skins/_all-skins.min.css">
@@ -65,31 +67,17 @@
 
                 <p>
                   <?php echo $_SESSION['nama']; ?>
-                  <small>ADMIN</small>
+                  <small><?php echo $_SESSION['role']; ?></small>
                 </p>
               </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
-              </li>
+
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+
                 </div>
                 <div class="pull-right">
-                  <a href="logut.php" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logut.php" class="btn btn-danger btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -135,15 +123,14 @@
         <li class="header">MAIN NAVIGATION</li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <i class="fa fa-dashboard"></i> <span>Form</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-          </ul>
+            <li><a href="../../index.html"><i class="fa fa-user"></i> Pendaftaran Anggota Baru</a></li>
+            </ul>
         </li>
         <li class="treeview">
           <a href="#">

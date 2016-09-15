@@ -13,6 +13,7 @@ include 'server/config.php';
     $_SESSION['nama']=$row['username'];
     $_SESSION['nama']=$row['nama'];
     $_SESSION['foto']=$row['foto'];
+    $_SESSION['role']=$row['role'];
     echo "<script>window.location.assign('media.php?page=home')</script>";
 }else{
   echo "<script>
