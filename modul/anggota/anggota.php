@@ -7,12 +7,14 @@ switch ($_GET['act']) {
 
 
                     <div class="panel panel-default">
+
                   <div class="panel-heading">
-                    <a href="input.php" class="btn btn-sm btn-primary">Tambah Data</a>
+
+                    <div class="table-responsive">
                   <table class="table table-striped table-bordered table-hover" id="anggota">
                                <thead bgcolor="#eeeeee" align="center">
                                   <tr>
-
+                                    <th>No</th>
                                     <th>Nomor Anggota</th>
                                     <th>Nomor KTP </th>
                                     <th>Nama </th>
@@ -37,19 +39,17 @@ switch ($_GET['act']) {
                       </div>
 
                   </div>
-                  <!--/.content-->
-              </div>
-              <!--/.span9-->
-          </div>
-      </div>
-      <!--/.container-->
-
-
   <?php
     break;
-    case "xx";
+    case "edit";
 ?>
 xaxaxax
 
+
+<?php
+break;
+case "delete";
+?>
+gggggg
 <?php }
  ?>

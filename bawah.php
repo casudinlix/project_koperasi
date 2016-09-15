@@ -227,6 +227,7 @@
 <script src="<?php echo $url;?>dist/js/demo.js"></script>
 <script src="<?php echo $url;?>bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 
+
 <script src="<?php echo $url;?>js/jquery.dataTables.js"></script>
 <script src="<?php echo $url;?>js/dataTables.bootstrap.js"></script>
 <script>
@@ -235,7 +236,14 @@
             "processing": true,
             "serverSide": true,
             "ajax": 'modul/anggota/ajax.php',
+
+            "order": [[2, 'asc']],
             "columns": [
+              {"data": null,
+         "width": "50px",
+         "sClass": "text-center",
+         "orderable": false,
+      },
                 {"data": "no_anggota"},
                 {"data": "no_ktp"},
                 {"data": "nama_anggota"},
@@ -245,9 +253,20 @@
                 {"data": "ttl"},
                 {"data": "alamat"},
                 {"data": "status"},
-              
-            ],
-            "order": [[1, 'asc']]
-        });
-    });
+                {"data": "no_anggota",
+                "width": "100px",
+                "sClass": "text-center",
+                "orderable": false,                                            "mRender": function (data) {
+return '<a href="?page=anggota&act=edit&id='+ data +'" ><i class=\'fa fa-edit fa-lg\' title=\'EDIT\'></i></a> \n\<a href="?page=anggota&act=delete&id='+ data +'" onclick="javascript:return confirm(\'Anda yakin?\');"><i class=\'fa fa-trash fa-lg\' title=\'DELETE\'></i></a>';
+  }
+  }
+              ],
+
+              });
+              t.on( 'order.dt search.dt', function () {
+                    t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                        cell.innerHTML = i+1;
+                    } );
+                } ).draw();
+            } );
 </script>
