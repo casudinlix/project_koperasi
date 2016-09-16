@@ -2,13 +2,14 @@
 <?php
 session_start();
  //$idt=$_SESSION['nama'];
-if(empty($_SESSION['id'])){
+if(empty($_SESSION['id']) AND empty($_SESSION['username']) AND empty($_SESSION['role'])){
   echo '<script language="javascript">alert("Anda Harus Login Dahulu!"); document.location="logut.php";</script>';
 }else{
 include "server/config.php";
 include "server/tgl.php";
 echo "<!DOCTYPE html>
 <html>";
+error_reporting(0);
 include "atas.php";
 
 if ($_GET['page']=="home") {
@@ -16,7 +17,9 @@ if ($_GET['page']=="home") {
 }elseif ($_GET['page']=="anggota") {
   include "modul/anggota/anggota.php";
 //  include "modul/anggota/ajax.php";
-}elseif ('condition') {
+}elseif ($_GET['page']=="jenis-simpanan") {
+  include "modul/config/jenis_simpanan.php";
+}elseif (condition) {
   # code...
 }
 ?>
