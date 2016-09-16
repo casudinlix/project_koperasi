@@ -9,7 +9,8 @@ include "server/config.php";
 include "server/tgl.php";
 echo "<!DOCTYPE html>
 <html>";
-error_reporting(0);
+//error_reporting(0);
+error_reporting(E_ALL ^ E_NOTICE);
 include "atas.php";
 
 if ($_GET['page']=="home") {
