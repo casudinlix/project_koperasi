@@ -112,11 +112,26 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="?page=anggota"><i class="fa fa-user"></i> Pendaftaran Anggota Baru</a></li>
+            <li><a href="?page=anggota"><i class="fa fa-users"></i> Pendaftaran Anggota Baru</a></li>
             </ul>
         </li>
 
 
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-truck"></i>
+            <span>Transaksi</span>
+            <span class="pull-right-container">
+              <span class="label label-primary pull-right">4</span>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="?page=jenis-simpanan"><i class="fa fa-money"></i> Simpananan</a></li>
+            <li><a href="?page=jenis-pinjaman"><i class="fa fa-gift"></i> Penarikan</a></li>
+            <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Pinjaman</a></li>
+            <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Bayar Pinjaman</a></li>
+          </ul>
+        </li>
   </aside>
 
   <!-- =============================================== -->
