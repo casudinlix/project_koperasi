@@ -14,7 +14,7 @@
                               <thead bgcolor ="#eeeeee" align="center">
                               <tr>
                               <th>No</th>
-                              
+                              <th>Kode Jenis</th>
                               <th>Nama Jenis</th>
                               <th>Jumlah Setor Minimal</th>
                               <th class      ="text-center"> Action </th>
@@ -32,6 +32,7 @@
                               <td>
                               <?php echo $no ?>
                               </td>
+                              <td colspan="" rowspan="" headers=""><?php echo $data['kd_simpanan'];?></td>
                               <td>
                               <?php echo $data['nama_jenis']; ?>
                               </td>
@@ -39,8 +40,8 @@
                               <?php echo number_format($data['min_setoran']); ?>,-
                               </td>
    <td colspan="" rowspan="" headers="">
-   <a href="?page=jenis-simpanan&act=edit&kd=<?php echo $data['id'];?> "<i class='fa fa-pencil fa-lg' title='Edit'></i>Edit</a> 
-   <a href="?page=jenis-simpanan&act=delete&kd=<?php echo $data['id']; ?>" onclick="javascript:return confirm('Anda yakin?')"><i class='fa fa-trash fa-lg' title='DELETE'></i>Hapus</a></td>
+   <a href="?page=jenis-simpanan&act=edit&kd=<?php echo $data['kd_simpanan'];?> "<i class='fa fa-pencil fa-lg' title='Edit'></i>Edit</a> 
+   <a href="?page=jenis-simpanan&act=delete&kd=<?php echo $data['kd_simpanan']; ?>" onclick="javascript:return confirm('Anda yakin?')"><i class='fa fa-trash fa-lg' title='DELETE'></i>Hapus</a></td>
                               
                               </tr>
                               <?php $no++;
@@ -61,14 +62,19 @@
                               <?php
                               break;
                               case "tambah";
+                              include 'fungsi.php';
                               ?>
  <section class="panel">
   <header class="panel-heading">
                   </header>
-                             <div class="panel-body">
-                             <div class="form">
+     <div class="panel-body">
+   <div class="form">
    <form class="form-validate form-horizontal" id="feedback_form" method="post" action="">
- 
+
+ <div class="form-group ">
+<label for="cemail" class="control-label col-lg-2">Kode Jenis <span class="required">*</span></label>
+<div class="col-lg-10"><input class="form-control " id="cemail" type="teks" name="kode" value="<?php echo $kd;?>" readonly /> </div>
+</div>
 <div class="form-group ">
 <label for="cemail" class="control-label col-lg-2">Nama Jenis <span class="required">*</span></label>
 <div class="col-lg-10"><input class="form-control " id="cemail" type="teks" onkeypress="return angka()" name="nama" required /> </div>
@@ -95,10 +101,11 @@
              </div>
 <?php
 if (isset($_POST['submit'])) {
+  $kd=$_POST['kode'];
       $nama=$_POST['nama'];
       $min=$_POST['min'];
 
-$insert=$conn->query("INSERT INTO m_jenis_simpanan(nama_jenis,min_setoran)VALUES('$nama','$min')");
+$insert=$conn->query("INSERT INTO m_jenis_simpanan(kd_simpanan,nama_jenis,min_setoran)VALUES('$kd','$nama','$min')");
       if($insert==FALSE){
 die($conn->error);
 }else{
@@ -116,7 +123,7 @@ die($conn->error);
 <?php 
 $kd=$_GET['kd'];
 
-$s = $conn->query("SELECT * FROM m_jenis_simpanan WHERE id='$kd'");
+$s = $conn->query("SELECT * FROM m_jenis_simpanan WHERE kd_simpanan='$kd'");
 $tampil = $s->fetch_array();
 ?>
  <form class="form-validate form-horizontal" id="feedback_form" method="post" action="">
@@ -129,7 +136,7 @@ $tampil = $s->fetch_array();
  <div class="form-group ">
  <label for="curl" class="control-label col-lg-2">Minimal Setoran</label>
   <div class="col-lg-10">
-   <input class="form-control " id="curl" type="teks" name="min" value="<?php echo number_format($tampil['min_setoran']);?>"/>
+   <input class="form-control " id="curl" type="teks" name="min" value="<?php echo $tampil['min_setoran'];?>"/>
   </div>
    </div>
 
@@ -146,7 +153,7 @@ if (isset($_POST['submit'])) {
       $nama =$_POST['nama'];
       $min = $_POST['min'];
 
-      $update =$conn->query("UPDATE m_jenis_simpanan SET nama_jenis='$nama',min_setoran='$min' WHERE id='$kd'");
+      $update =$conn->query("UPDATE m_jenis_simpanan SET nama_jenis='$nama',min_setoran='$min' WHERE kd_simpanan='$kd'");
       if ($update==FALSE) {
            die($conn->error);
       }else{
@@ -161,7 +168,7 @@ echo "<script>
                               <?php    break ;
                               case "delete";
      $kd=$_GET['kd'];                         
-$update =$conn->query("DELETE FROM m_jenis_simpanan WHERE id='$kd'");
+$update =$conn->query("DELETE FROM m_jenis_simpanan WHERE kd_simpanan='$kd'");
       if ($update==FALSE) {
            die($conn->error);
       }else{

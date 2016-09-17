@@ -20,8 +20,10 @@ if ($_GET['page']=="home") {
 //  include "modul/anggota/ajax.php";
 }elseif ($_GET['page']=="jenis-simpanan") {
   include "modul/config/jenis_simpanan.php";
-}elseif (condition) {
-  # code...
+}elseif ($_GET['page']=="jenis-pinjaman") {
+ include "modul/config/jenis_pinjaman.php";
+}elseif (expr) {
+	
 }
 ?>
 

@@ -18,7 +18,7 @@ include 'server/config.php';
 }else{
   echo "<script>
   alert('Sometink Is Wrong');
-  window.location.href = 'index.php';
+  window.location.href = '$url';
   </script>";
 }
 
