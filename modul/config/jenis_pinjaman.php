@@ -65,7 +65,7 @@
 		include 'fungsi_pinjaman.php';
 		?>
 
-<section class="panel">
+
   <header class="panel-heading">
                   </header>
      <div class="panel-body">
@@ -73,7 +73,7 @@
    <form class="form-validate form-horizontal" id="feedback_form" method="post" action="">
 
  <div class="form-group ">
-<label for="cemail" class="control-label col-lg-2">Kode Jenis <span class="required">*</span></label>
+<label for="cemail" class="control-label col-lg-2">Kode Simpanan <span class="required">*</span></label>
 <div class="col-lg-10"><input class="form-control " id="cemail" type="teks" name="kode" value="<?php echo $kd;?>" readonly /> </div>
 </div>
 <div class="form-group ">
@@ -81,31 +81,125 @@
 <div class="col-lg-10"><input class="form-control " id="cemail" type="teks" name="nama" v /> </div>
 </div>
 <div class="form-group ">
-<label for="cemail" class="control-label col-lg-2">Lama Angsuran<span class="required">*</span></label>
-<div class="col-lg-10"><input class="form-control " id="cemail" type="teks" name="lama" /> </div>
-</div>
+   <label for="curl" class="control-label col-lg-2">Lama Pinjaman</label>
+    <div class="col-lg-10">
+
+<select class="form-control select2" style="width: 100%;" name="lama">
+                   <option>-Pilih-</option>
+                   <option value="3">3 Bulan</option>
+                   <option value="6">6 Bulan</option>
+                   <option value="12">12 Bulan</option>
+                   
+                 </select>
+                 </div>
+                 </div>
 <div class="form-group ">
 <label for="cemail" class="control-label col-lg-2">Maksimal Pinjaman <span class="required">*</span></label>
-<div class="col-lg-10"><input class="form-control " id="cemail" type="teks" name="max" /> </div>
+<div class="col-lg-10"><input class="form-control " id="cemail" type="teks" name="max" placeholder="Rp"/> </div>
 </div>
-<div class="form-group ">
-<label for="cemail" class="control-label col-lg-2">Tanggal <span class="required">*</span></label>
-<div class="col-lg-10"><input class="form-control " id="cemail" type="teks" name="kode" value="<?php echo $date;?>" readonly /> </div>
-</div>                            
+       
 <div class="form-group">
   <div class="col-lg-offset-2 col-lg-10">
        <input type="submit" name="submit" class="btn-info" value="Save"></button>
          <button class="btn btn-default" type="reset">Reset</button>
+
+<?php
+if (isset($_POST['submit'])) {
+	$kd =$_POST['kode'];
+	$nama =$_POST['nama'];
+	$lama=$_POST['lama'];
+	$max=$_POST['max'];
+	$insert =$conn->query("INSERT INTO m_jenis_pinjaman(kd_pinjaman,nama_pinjaman,lama_angsuran,max_pinjaman,tgl)VALUES('$kd','$nama','$lama','$max',NOW())");
+	if ($insert==FALSE) {
+		die($conn->error);
+	}else{
+		echo "<script>
+  alert('Success');
+  window.location.href = 'media.php?page=jenis-pinjaman';
+  </script>";
+	}
+}
+
+?>
 <?php break;
 
 case 'edit':
+$kd=$_GET['kd'];
+$q = $conn->query("SELECT * FROM m_jenis_pinjaman WHERE kd_pinjaman='$kd'");
+$d=$q->fetch_array();
 ?>
 
-edit
+
+  <header class="panel-heading">
+                  </header>
+     <div class="panel-body">
+   <div class="form">
+   <form class="form-validate form-horizontal" id="feedback_form" method="post" action="">
+
+ <div class="form-group ">
+<label for="cemail" class="control-label col-lg-2">Kode Simpanan <span class="required">*</span></label>
+<div class="col-lg-10"><input class="form-control " id="cemail" type="teks" name="kode" value="<?php echo $kd;?>" readonly /> </div>
+</div>
+<div class="form-group ">
+<label for="cemail" class="control-label col-lg-2">Nama Pinjaman <span class="required">*</span></label>
+<div class="col-lg-10"><input class="form-control " id="cemail" type="teks" name="nama" value="<?php echo $d['nama_pinjaman']?>" /> </div>
+</div>
+<div class="form-group ">
+   <label for="curl" class="control-label col-lg-2">Lama Pinjaman</label>
+    <div class="col-lg-10">
+
+<select class="form-control select2" style="width: 100%;" name="lama">
+                   <option value="<?php echo $d['lama_angsuran']?>"><?php echo $d['lama_angsuran']?> Bulan</option>
+                   <option value="3">3 Bulan</option>
+                   <option value="6">6 Bulan</option>
+                   <option value="12">12 Bulan</option>
+                   
+                 </select>
+                 </div>
+                 </div>
+<div class="form-group ">
+<label for="cemail" class="control-label col-lg-2">Maksimal Pinjaman <span class="required">*</span></label>
+<div class="col-lg-10"><input class="form-control " id="cemail" type="teks" name="max" value="<?php echo $d['max_pinjaman']?>"/> </div>
+</div>
+       
+<div class="form-group">
+  <div class="col-lg-offset-2 col-lg-10">
+       <input type="submit" name="submit" class="btn-info" value="Update">
+
+       <?php
+if (isset($_POST['submit'])) {
+
+	$nama=$_POST['nama'];
+	$lama=$_POST['lama'];
+	$max =$_POST['max'];
+
+$update =$conn->query("UPDATE m_jenis_pinjaman SET nama_pinjaman='$nama',lama_angsuran='$lama', max_pinjaman='$max' WHERE kd_pinjaman='$kd'");
+      if ($update==FALSE) {
+           die($conn->error);
+      }else{
+echo "<script>
+  alert('Success Update');
+  window.location.href = 'media.php?page=jenis-pinjaman';
+  </script>";
+      }
+}
+       ?>
 
 <?php break;
-case 'delete':?>
-Delete
+case 'delete';
+
+$kd=$_GET['kd'];                         
+$update =$conn->query("DELETE FROM m_jenis_pinjaman WHERE kd_pinjaman='$kd'");
+      if ($update==FALSE) {
+           die($conn->error);
+      }else{
+echo "<script>
+  alert('Success');
+  window.location.href = 'media.php?page=jenis-pinjaman';
+  </script>";}
+
+?>
+
 <?php	break;?>
 <?php }
 ?>
