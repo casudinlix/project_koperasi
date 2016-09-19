@@ -126,8 +126,23 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="?page=jenis-simpanan"><i class="fa fa-money"></i> Simpananan</a></li>
-            <li><a href="?page=jenis-pinjaman"><i class="fa fa-gift"></i> Penarikan</a></li>
+            <li><a href="?page=transaksi-simpanan"><i class="fa fa-money"></i> Simpananan</a></li>
+            <li><a href="?page=transaksi-penarikan"><i class="fa fa-gift"></i> Penarikan</a></li>
+            <li><a href="../layout/fixed.html"><i class="fa fa-credit-card"></i> Pinjaman</a></li>
+            <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-cc-amex"></i> Bayar Pinjaman</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-database"></i>
+            <span>Master Data</span>
+            <span class="pull-right-container">
+              <span class="label label-primary pull-right">4</span>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="?page=jenis-simpanan"><i class="fa fa-money"></i> Tabungan</a></li>
+            <li><a href="?page=jenis-pinjaman"><i class="fa fa-gift"></i> Hutang</a></li>
             <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Pinjaman</a></li>
             <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Bayar Pinjaman</a></li>
           </ul>

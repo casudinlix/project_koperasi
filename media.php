@@ -22,6 +22,10 @@ if ($_GET['page']=="home") {
   include "modul/config/jenis_simpanan.php";
 }elseif ($_GET['page']=="jenis-pinjaman") {
  include "modul/config/jenis_pinjaman.php";
+}elseif ($_GET['page']=="transaksi-simpanan") {
+	include "modul/simpanan/simpanan.php";
+}elseif ($_GET['page']=="transaksi-penarikan") {
+	include "modul/penarikan/penarikan.php";
 }elseif (expr) {
 	
 }

@@ -129,7 +129,7 @@ include "modul/anggota/fungsi.php";
   </div>
      <div class="form-group">
   <div class="col-lg-offset-2 col-lg-10">
-       <input type="submit" name="submit" class="btn-info">Save</button>
+       <input type="submit" name="submit" class="btn-info" value="Save"></button>
          <button class="btn btn-default" type="reset">Reset</button>
                                          </div>
                                      </div>
