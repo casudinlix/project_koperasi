@@ -43,7 +43,7 @@ $aku=$q->fetch_array();
 <table class="table table-hover" >
 
 
-            <tr class="warning">
+            <tr class="danger">
 				<th colspan="" rowspan="" headers="" scope="">No</th>
             	<th colspan="" rowspan="" headers="" scope="">Kode Simpanan</th>
             	<th colspan="" rowspan="" headers="" scope="">Tanggal Simpan</th>
@@ -64,7 +64,7 @@ $sql=$conn->query("SELECT * FROM m_jenis_simpanan,tt_simpanan WHERE m_jenis_simp
 	}else{
 	while($rows=$sql->fetch_array()){
 		?>
-<tr class="warning">
+<tr class="info">
 <td colspan="" rowspan="" headers=""><?php echo $no?></td>
 	<td colspan="" rowspan="" headers=""><?php echo $rows['kd_simpanan'];?></td>
 <td colspan="" rowspan="" headers=""><?php echo tgl_indo($rows['tgl']);?></td>
@@ -82,9 +82,9 @@ $sql=$conn->query("SELECT * FROM m_jenis_simpanan,tt_simpanan WHERE m_jenis_simp
 
 echo "
 	<tr>
-		<td colspan='3' align='center'>Total</td>
-		<td align='right' colspan='3'><b>".number_format($gtotal)."</b></td>
-	
+		<td colspan='3' align='center' class='warning'>Total Saldo</td><td class='warning'></td><td class='warning'></td>
+		<td align='right'  class='warning'>Rp.<b>".number_format($gtotal).",-,</b></td></td><td class='warning'></td>
+		
 	</tr> </table>";
 }
          
