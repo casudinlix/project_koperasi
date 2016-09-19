@@ -18,9 +18,9 @@ switch ($_GET['act']) {
             <!-- form start -->
             <form role="form" action="" method="POST">
               <div class="box-body">
-                <div class="form-group">
+                <div class="form-group ui-helper-clearfix">
                   <label for="exampleInputEmail1">No anggota</label>
-                  <input type="teks" class="form-control" id="" placeholder="Enter No Anggota">
+                  <input type="teks" class="form-control" id="no" placeholder="Enter No Anggota" onkeyup="this.value = this.value.toUpperCase()">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Tanggal Simpan</label>
@@ -73,38 +73,17 @@ switch ($_GET['act']) {
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal">
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="" class="col-sm-2 control-label">Nama</label>
-
-                  <div class="col-sm-10">
-                    <input type="email" class="form-control" id="" placeholder="" readonly="true">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label">Alamat</label>
-
-                  <div class="col-sm-10">
-                    <textarea class="form-control " id="" name="alamat" readonly="true"></textarea>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
-                    
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <form class="form-horizontal" id="info_anggota">
+              
               <!-- /.box-body -->
               
             </form>
           </div>
-          <!-- /.box -->
-          <!-- general form elements disabled -->
          
-            <!-- /.box-header -->
-           
+            <div id="tampil_simpanan">
+              
+            </div>
+          
           </div>
           <!-- /.box -->
         </div>
@@ -114,10 +93,17 @@ switch ($_GET['act']) {
     </section>
     <!-- /.content -->
   </div>
+
+  
   <!-- /.content-wrapper -->
     </aside>
    <?php
     break;
+    case "cari";
+?>
+
+
+    <?php break;
 
 }
 ?>

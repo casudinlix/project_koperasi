@@ -63,7 +63,7 @@
                 {"data": "no_anggota",
                 "width": "100px",
                 "sClass": "text-center",
-                "orderable": false,                                            "mRender": function (data) {
+                "orderable": false,"mRender": function (data) {
 return '<a href="?page=anggota&act=detail&id='+ data +'" ><i class=\'fa fa-eye fa-lg\' title=\'Detail\'></i></a>\n\<a href="?page=anggota&act=edit&id='+ data +'" ><i class=\'fa fa-edit fa-lg\' title=\'EDIT\'></i></a> \n\<a href="?page=anggota&act=delete&id='+ data +'" onclick="javascript:return confirm(\'Anda yakin?\');"><i class=\'fa fa-trash fa-lg\' title=\'DELETE\'></i></a>';
   }
   }
@@ -81,3 +81,4 @@ return '<a href="?page=anggota&act=detail&id='+ data +'" ><i class=\'fa fa-eye f
     });
 
 </script>
+

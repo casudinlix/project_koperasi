@@ -14,8 +14,15 @@
   <script type="text/javascript" language="javascript" src="<?php echo $url;?>js/jquery.dataTables.js"></script>
   <link rel="stylesheet" href="<?php echo $url;?>css/dataTables.bootstrap.css"/>
   <!-- Font Awesome -->
+  <script language="javascript" src="modul/simpanan/ajax.js"></script>
   <link rel="stylesheet" href="<?php echo $url;?>css/font-awesome.min.css">
   <!-- Ionicons -->
+
+  <script type="text/javascript" src="<?php echo $url;?>js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="<?php echo $url;?>js/jquery.easyui.min.js"></script>
+
+<script type="text/javascript" src="<?php echo $url;?>js/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="<?php echo $url;?>js/jquery.ui.core.js"></script>
    <link rel="stylesheet" href="<?php echo $url;?>css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="shortcut icon" href="img/pp.jpg"/>
@@ -30,7 +37,21 @@
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
   <![endif]-->
+  <script type="text/javascript" src="<?php echo $url;?>js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="<?php echo $url;?>js/jquery.easyui.min.js"></script>
+
+<script type="text/javascript" src="<?php echo $url;?>js/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="<?php echo $url;?>js/jquery.ui.core.js"></script>
+<script type="text/javascript" src="<?php echo $url;?>js/ui.datepicker-id.js"></script>
+<script type="text/javascript" src="<?php echo $url;?>js/jquery.ui.datepicker.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  
+});
+</script>
   <link rel="stylesheet" href="<?php echo $url;?>plugins/datepicker/datepicker3.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
