@@ -20,7 +20,7 @@ $get_3_number_of_year = substr( $years,-3 ); // mengambil 3 angka dari sebelah k
 * Query untuk mengambil 1 baris data berdasarkan id / kode yg terakhir
 * RIGHT(kd_barang,3) maksudnya mengambil 3 angka dari sebelah kanan diurutkan berdasarkan kode tsb secara Descending
 */
-$get_data = $conn->query("SELECT RIGHT(kd_simpanan,2) FROM m_jenis_simpanan ORDER BY RIGHT(kd_simpanan,2) DESC" );
+$get_data = $conn->query("SELECT RIGHT(kd_jenis,2) FROM m_jenis_simpanan ORDER BY RIGHT(kd_jenis,2) DESC" );
 
 $check_data = $get_data->num_rows;
 $fetch_data = $get_data->fetch_array();

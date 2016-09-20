@@ -32,7 +32,7 @@
                               <td>
                               <?php echo $no ?>
                               </td>
-                              <td colspan="" rowspan="" headers=""><?php echo $data['kd_simpanan'];?></td>
+                              <td colspan="" rowspan="" headers=""><?php echo $data['kd_jenis'];?></td>
                               <td>
                               <?php echo $data['nama_jenis']; ?>
                               </td>
@@ -105,7 +105,7 @@ if (isset($_POST['submit'])) {
       $nama=$_POST['nama'];
       $min=$_POST['min'];
 
-$insert=$conn->query("INSERT INTO m_jenis_simpanan(kd_simpanan,nama_jenis,min_setoran)VALUES('$kd','$nama','$min')");
+$insert=$conn->query("INSERT INTO m_jenis_simpanan(kd_jenis,nama_jenis,min_setoran)VALUES('$kd','$nama','$min')");
       if($insert==FALSE){
 die($conn->error);
 }else{

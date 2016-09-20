@@ -6,8 +6,12 @@ $id = $_POST['cari'];
 $sql=$conn->query("SELECT * FROM m_anggota WHERE no_anggota='$id'");
 //$sql=$conn->query("SELECT * FROM m_jenis_simpanan,tt_simpanan,m_anggota WHERE m_jenis_simpanan.kd_simpanan=no_anggota.kd_jenis no_anggota.m_anggota=no_anggota.kd_jenis AND no_anggota='$id'");
 $row  = $sql->num_rows;
-if ($row>0){
-  $r=$sql->fetch_array();
+if ($row==0){
+  echo "<div>
+  <img src='$url/img/load.gif'>Loading
+</div>";
+}else{
+	$r=$sql->fetch_array();
   
   ?>
   <div class="box-body">
@@ -34,6 +38,8 @@ if ($row>0){
                 </div>
               </div>
 
-<?php }
+<?php 
+}
+
     ?>
 
