@@ -82,3 +82,46 @@ return '<a href="?page=anggota&act=detail&id='+ data +'" ><i class=\'fa fa-eye f
 
 </script>
 
+<script>
+    $(document).ready(function () {
+        var t = $('#tabungan').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": 'modul/laporan/ajax.php',
+
+            "order": [[2, 'asc']],
+            "columns": [
+              {"data": null,
+         "width": "30px",
+         "sClass": "text-center",
+         "orderable": true,
+      },
+                {"data": "no_anggota"},
+                {"data": "no_ktp"},
+                {"data": "nama_anggota"},
+                
+                
+                
+                {"data": "alamat"},
+                {"data": "status"},
+                {"data": "no_anggota",
+                "width": "100px",
+                "sClass": "text-center",
+                "orderable": false,"mRender": function (data) {
+return '<a href="modul/laporan/cetak_tabungan.php?id='+ data +'" target=\'_blank\'><i class=\'fa fa-print fa-lg\' title=\'Print\'></i></a>';
+  }
+  }
+              ],
+
+              });
+              t.on( 'order.dt search.dt', function () {
+                    t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                        cell.innerHTML = i+1;
+                    } );
+                } ).draw();
+            } );
+            $('#datepicker').datepicker({
+      autoclose: true
+    });
+
+</script>

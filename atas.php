@@ -162,7 +162,7 @@ $(document).ready(function(){
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="?page=jenis-simpanan"><i class="fa fa-money"></i> Tabungan</a></li>
+            <li><a href="?page=laporan-tabungan"><i class="fa fa-money"></i> Tabungan</a></li>
             <li><a href="?page=jenis-pinjaman"><i class="fa fa-gift"></i> Hutang</a></li>
             <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Pinjaman</a></li>
             <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Bayar Pinjaman</a></li>
