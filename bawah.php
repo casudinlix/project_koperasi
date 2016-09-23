@@ -108,7 +108,7 @@ return '<a href="?page=anggota&act=detail&id='+ data +'" ><i class=\'fa fa-eye f
                 "width": "100px",
                 "sClass": "text-center",
                 "orderable": false,"mRender": function (data) {
-return '<a href="modul/laporan/cetak_tabungan.php?id='+ data +'" target=\'_blank\'><i class=\'fa fa-print fa-lg\' title=\'Print\'></i></a>';
+return '<a href="?page=laporan-tabungan&act=ditel&id='+ data +'" ><i class=\'fa fa-book fa-lg\' title=\'Detail\'></i></a>';
   }
   }
               ],

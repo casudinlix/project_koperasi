@@ -27,10 +27,8 @@ switch ($_GET['act']) {
 
 	<?php	break;
 	case "ditel"; ?>
-detil tabungan
 
-
-
+<embed src="modul/laporan/cetak_tabungan.php" type="application/pdf" width="1100px" height="500"/>
 
 
 
