@@ -99,7 +99,7 @@ $(document).ready(function(){
           <img src="img/<?php echo $_SESSION['foto'];?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p><?php echo $_SESSION['nama'];?></p>
+          <p><?php echo $_SESSION['nama_kita'];?></p>
           <a href="logut.php"><i class="fa fa-sign-out"></i> Sign out</a>
 
         </div>

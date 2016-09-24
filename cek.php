@@ -11,7 +11,7 @@ include 'server/config.php';
     session_start();
     $_SESSION['id']=$row['id'];
     $_SESSION['nama']=$row['username'];
-    $_SESSION['nama']=$row['nama'];
+    $_SESSION['nama_kita']=$row['nama_kita'];
     $_SESSION['foto']=$row['foto'];
     $_SESSION['role']=$row['role'];
     echo "<script>window.location.assign('media.php?page=home')</script>";

@@ -28,7 +28,7 @@ switch ($_GET['act']) {
 	<?php	break;
 	case "ditel"; ?>
 
-<embed src="modul/laporan/cetak_tabungan.php" type="application/pdf" width="1100px" height="500"/>
+<embed src="pdf/ex.php" type="application/pdf" width="1100px" height="500"/>
 
 
 

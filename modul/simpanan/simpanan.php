@@ -38,7 +38,7 @@ switch ($_GET['act']) {
                   <label for="exampleInputPassword1">Jenis Simpanan</label>
                 <select class="form-control select2" style="width: 100%;" name="jenis">
                 <?php $q =$conn->query("SELECT * FROM m_jenis_simpanan"); ?>
-                  <option selected="selected">Pilih</option>
+                  <option>Pilih</option>
                   <?php 
                   while ($data=$q->fetch_array()) {
                       
