@@ -3,7 +3,7 @@ switch ($_GET['act']) {
 
   default:
   include "fungsi.php";
-  
+
    ?>
 
 
@@ -52,7 +52,8 @@ switch ($_GET['act']) {
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Jumlah Penarikan</label>
-                  <input type="text" class="form-control" id="" placeholder="" name="jml">
+                  <input type="text" class="form-control" id="jml" placeholder="" name="jml">
+                  <input type="hidden" name="xx" id="saldo" value="">
                 </div>
 
                 <input type="hidden" name="user" value="<?php echo $_SESSION['nama'];?>">
@@ -74,16 +75,22 @@ if (isset($_POST['submit'])) {
   $usr=$_POST['user'];
   //keterangan
   $update=$_POST['update'];
+
+  if (saldo($saldo) < 0) {
+    echo "<script>
+  alert('saldo anda Tidak Mencukupi $saldo');
+  window.location.href = 'media.php?page=transaksi-penarikan';
+  </script>";
+  die();
+  }else{
 $insert = $conn->query("INSERT INTO tt_pengambilan (kd_pengambilan,kd_jenis,no_anggota,jumlah,tgl,user,keterangan,tgl_update)
   VALUES('$kd','$jenis','$no','$jml','$tgl','$usr','Tarik Tunai','$update')");
-if ($insert==FALSE) {
-  die($conn->error);
-}else{
    echo "<script>
   alert('Success');
   window.location.href = 'media.php?page=transaksi-penarikan';
   </script>";
 }
+
 }
 ?>
           </div>

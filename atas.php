@@ -122,7 +122,7 @@ $(document).ready(function(){
           <ul class="treeview-menu">
             <li><a href="?page=jenis-simpanan"><i class="fa fa-money"></i> Simpanan</a></li>
             <li><a href="?page=jenis-pinjaman"><i class="fa fa-gift"></i> Pinjaman</a></li>
-            <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
+            <li><a href="?page=profil"><i class="fa fa-bank"></i> Profil Koperasi</a></li>
             <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
           </ul>
         </li>

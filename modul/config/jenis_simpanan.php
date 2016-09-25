@@ -40,8 +40,8 @@
                               <?php echo number_format($data['min_setoran']); ?>,-
                               </td>
    <td colspan="" rowspan="" headers="">
-   <a href="?page=jenis-simpanan&act=edit&kd=<?php echo $data['kd_simpanan'];?> "<i class='fa fa-pencil fa-lg' title='Edit'></i>Edit</a> 
-   <a href="?page=jenis-simpanan&act=delete&kd=<?php echo $data['kd_simpanan']; ?>" onclick="javascript:return confirm('Anda yakin?')"><i class='fa fa-trash fa-lg' title='DELETE'></i>Hapus</a></td>
+   <a href="?page=jenis-simpanan&act=edit&kd=<?php echo $data['kd_jenis'];?> "<i class='fa fa-pencil fa-lg' title='Edit'></i>Edit</a> 
+   <a href="?page=jenis-simpanan&act=delete&kd=<?php echo $data['kd_jenis']; ?>" onclick="javascript:return confirm('Anda yakin?')"><i class='fa fa-trash fa-lg' title='DELETE'></i>Hapus</a></td>
                               
                               </tr>
                               <?php $no++;
@@ -123,7 +123,7 @@ die($conn->error);
 <?php 
 $kd=$_GET['kd'];
 
-$s = $conn->query("SELECT * FROM m_jenis_simpanan WHERE kd_simpanan='$kd'");
+$s = $conn->query("SELECT * FROM m_jenis_simpanan WHERE kd_jenis='$kd'");
 $tampil = $s->fetch_array();
 ?>
  <form class="form-validate form-horizontal" id="feedback_form" method="post" action="">
@@ -153,7 +153,7 @@ if (isset($_POST['submit'])) {
       $nama =$_POST['nama'];
       $min = $_POST['min'];
 
-      $update =$conn->query("UPDATE m_jenis_simpanan SET nama_jenis='$nama',min_setoran='$min' WHERE kd_simpanan='$kd'");
+      $update =$conn->query("UPDATE m_jenis_simpanan SET nama_jenis='$nama',min_setoran='$min' WHERE kd_jenis='$kd'");
       if ($update==FALSE) {
            die($conn->error);
       }else{

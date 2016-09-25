@@ -102,7 +102,7 @@ $(document).ready(function(){
 	})
 	$("#no").keyup(function(){
 		var cari = $("#no").val();
-		
+		cariSaldo(cari);
 		cariAnggota(cari);
 		cariSimpananAnggota(cari);
 	})
@@ -117,7 +117,22 @@ $(document).ready(function(){
 			}
 		});
 	}
-
+function cariSaldo(e){
+		var cari = e;
+		if(cari.length>3){
+		$.ajax({
+			type	: "POST",
+			url		: "modul/simpanan/cari_saldo.php",
+			data	: "cari="+cari,
+			dataType: "json",
+			success	: function(data){
+				$("#saldo").val(data.saldo);
+				//alert('Saldo '+data.saldo);
+			}
+		});
+		}
+	}
+	
 	function cariSimpananAnggota(e){
 		var cari = e;
 		$.ajax({

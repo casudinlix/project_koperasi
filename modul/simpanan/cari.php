@@ -1,5 +1,6 @@
 <?php
 include "../../server/config.php";
+include "../../server/all.php";
 $table  = 'm_anggota';
 $id = $_POST['cari'];
 
@@ -17,7 +18,7 @@ if ($row==0){
 }else{
 	$r=$sql->fetch_array();
 
-
+$saldo = saldo($r['no_anggota']);
 
 
   ?>
@@ -38,11 +39,7 @@ if ($row==0){
                   </div>
                 </div>
 <?php
-$sql1=$conn->query("SELECT * FROM m_jenis_simpanan,tt_simpanan WHERE m_jenis_simpanan.kd_jenis=tt_simpanan.kd_jenis AND  no_anggota='$id' ORDER BY kd_simpanan");
-  while($rows=$sql1->fetch_array()){
 
-$gtotal = $gtotal+$rows['jumlah'];
-}
 
 ?>
 <div class="form-group">
@@ -50,7 +47,7 @@ $gtotal = $gtotal+$rows['jumlah'];
   <label for="" class="col-sm-2 control-label">Saldo </label>
 
   <div class="col-sm-10">
-    <input type="text" class="form-control" id="" placeholder="" readonly="true" value="<?php echo number_format($gtotal)?>">
+    <input type="text" class="form-control" id="" placeholder="" readonly="true" value="<?php echo number_format($saldo)?>">
   </div>
 </div>
 

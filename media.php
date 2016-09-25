@@ -29,6 +29,8 @@ if ($_GET['page']=="home") {
 	include "modul/pengambilan/pengambilan.php";
 }elseif ($_GET['page']=="laporan-tabungan") {
 	include "modul/laporan/laporan_tabungan.php";
+}elseif ($_GET['page']=="profil") {
+	include "modul/config/profil.php";
 }elseif (expr) {
 	
 }

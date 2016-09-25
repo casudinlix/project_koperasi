@@ -38,11 +38,12 @@ $q=$conn->query("SELECT * FROM m_anggota $where");
 $aku=$q->fetch_array();
 ?>
 <div class="box-header with-border">
-              <h3 class="box-title">Info Simpanan Atas Nama <?php echo $aku['nama_anggota'];?></h3>
+              <h3 class="box-title">Riwayat Simpanan Atas Nama <?php echo $aku['nama_anggota'];?></h3>
             </div>
            
- <div style="overflow:auto; width:110%; height: 400px;">
-<table class="table table-hover" >
+ 
+ <div class="box-body no-padding">
+              <table class="table">
 
 
             <tr class="danger">
@@ -55,7 +56,7 @@ $aku=$q->fetch_array();
             	<th colspan="" rowspan="" headers="" scope="">Petugas</th>
 
             </tr>
-
+</div>
             <?php
 //$sql= "SELECT a.*,b.jenis_simpanan FROM tt_simpanan as a JOIN m_jenis_simpanan as b ON a.kd_jenis=b.kd_jenis $where ORDER BY a.id DESC";
 $sql=$conn->query("SELECT * FROM m_jenis_simpanan,tt_simpanan WHERE m_jenis_simpanan.kd_jenis=tt_simpanan.kd_jenis AND  no_anggota='$cari' ORDER BY kd_simpanan");
@@ -91,6 +92,6 @@ echo "
 		<td colspan='3' align='center' class='warning'>Total Saldo</td><td class='warning'></td><td class='warning'></td>
 		<td align='right'  class='warning'><i class='fa fa-money'</i>Rp.<b>".number_format($gtotal).",-,</b></td></td><td class='warning'></td>
 		
-	</tr> </table> ";
+	</tr> </table> </div>";
 }
          

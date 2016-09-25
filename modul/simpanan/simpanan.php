@@ -109,7 +109,7 @@ if ($insert==FALSE) {
             </form>
             <div id="saldo"> </div>
           </div>
-
+        <div class="box-body no-padding">
             <div id="tampil_simpanan">
 
             </div>
