@@ -109,7 +109,7 @@ $(document).ready(function(){
 		var cari = e;
 		$.ajax({
 			type	: "POST",
-			url		: "modul/simpanan/cari.php",
+			url		: "modul/pengambilan/cari.php",
 			data	: "cari="+cari,
 			success	: function(data){
 				$("#info_anggota").html(data);
@@ -120,10 +120,10 @@ $(document).ready(function(){
 		var cari = e;
 		$.ajax({
 			type	: "GET",
-			url		: "modul/simpanan/cari_simpanan.php",
+			url		: "modul/pengambilan/cari_simpanan.php",
 			data	: "cari="+cari,
 			success	: function(data){
-				$("#tampil_data1").html(data);
+				$("#penyimpanan").html(data);
 			}
 		});
 	}

@@ -2,7 +2,8 @@
 switch ($_GET['act']) {
 
   default:
-  include "fungsi.php"
+  include "fungsi.php";
+  
    ?>
 
 
@@ -26,11 +27,11 @@ switch ($_GET['act']) {
 
                 <div class="form-group ui-helper-clearfix">
                   <label for="exampleInputEmail1">No anggota</label>
-                  <input type="teks" class="form-control" id="nomor" name="nomor" placeholder="Enter No Anggota" onkeyup="this.value = this.value.toUpperCase()" autocomplete="off">
+                  <input type="teks" class="form-control" id="nomor" name="nomor" placeholder="Enter No Anggota"  autocomplete="off">
                 </div>
                 <div class="form-group">
                 <input type="hidden" name="update" value="<?php echo date('Y-m-d H:i:s');?>" placeholder="">
-                  <label for="exampleInputPassword1">Tanggal Simpan</label>
+                  <label for="exampleInputPassword1">Tanggal Penarikan</label>
                   <input type="text" class="form-control" name="" placeholder="<?php echo tgl_indo(date("Y m d"));?>"  readonly>
                   <input type="hidden" name="tgl" value="<?php echo date("Y-m-d");?>" placeholder="">
                 </div>
@@ -44,17 +45,17 @@ switch ($_GET['act']) {
 
 
                      ?>
-                  <option value="<?php echo $data['kd_jenis'];?>" READONLY><?php echo $data['nama_jenis'];?></option>
+                  <option value="<?php echo $data['kd_jenis'];?>"><?php echo $data['nama_jenis'];?></option>
 
                 </select>
 
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Jumlah Simpanan</label>
-                  <input type="text" class="form-control" id="" placeholder="" name="jumlah">
+                  <label for="exampleInputPassword1">Jumlah Penarikan</label>
+                  <input type="text" class="form-control" id="" placeholder="" name="jml">
                 </div>
 
-                <input type="hidden" name="user" value="<?php echo $_SESSION['nama'];?>" placeholder="">
+                <input type="hidden" name="user" value="<?php echo $_SESSION['nama'];?>">
               </div>
               <!-- /.box-body -->
 
@@ -65,20 +66,22 @@ switch ($_GET['act']) {
             <?php
 if (isset($_POST['submit'])) {
   $not=$_POST['notras'];
-  $no=$_POST['no'];
-  strtotime($tgl=$_POST['tgl']);
   $jenis =$_POST['jenis'];
-  $jml=$_POST['jumlah'];
+  $no=$_POST['nomor'];
+   
+  $jml=$_POST['jml'];
+  strtotime($tgl=$_POST['tgl']);
   $usr=$_POST['user'];
+  //keterangan
   $update=$_POST['update'];
-$insert = $conn->query("INSERT INTO tt_simpanan (kd_simpanan,tgl,no_anggota,kd_jenis,jumlah,tgl_update,user)
-  VALUES('$kd','$tgl','$no','$jenis','$jml','$update','$usr')");
+$insert = $conn->query("INSERT INTO tt_pengambilan (kd_pengambilan,kd_jenis,no_anggota,jumlah,tgl,user,keterangan,tgl_update)
+  VALUES('$kd','$jenis','$no','$jml','$tgl','$usr','Tarik Tunai','$update')");
 if ($insert==FALSE) {
   die($conn->error);
 }else{
    echo "<script>
   alert('Success');
-  window.location.href = 'media.php?page=transaksi-simpanan';
+  window.location.href = 'media.php?page=transaksi-penarikan';
   </script>";
 }
 }
@@ -103,13 +106,14 @@ if ($insert==FALSE) {
             <form class="form-horizontal" id="info_anggota">
 
               <!-- /.box-body -->
-
-            </form>
-          </div>
-
-            <div id="saldo">
+<div id="saldo">
 
             </div>
+            </form>
+            
+          </div>
+
+            
 
           </div>
           <!-- /.box -->

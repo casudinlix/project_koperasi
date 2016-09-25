@@ -7,6 +7,7 @@ if(empty($_SESSION['id']) AND empty($_SESSION['username']) AND empty($_SESSION['
 }else{
 include "server/config.php";
 include "server/tgl.php";
+
 echo "<!DOCTYPE html>
 <html>";
 //error_reporting(0);

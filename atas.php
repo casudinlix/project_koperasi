@@ -106,7 +106,7 @@ $(document).ready(function(){
         </div>
       </div>
 
-
+<?php include "server/all.php";?>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">

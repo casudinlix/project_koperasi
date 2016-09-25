@@ -1,5 +1,6 @@
 <?php
 include "../../server/config.php";
+ include "../../server/all.php";
 $table  = 'm_anggota';
 $id = $_POST['cari'];
 
@@ -12,7 +13,7 @@ if ($row==0){
 </div>";
 }else{
 	$r=$sql->fetch_array();
-  
+  $saldo = saldo($r['no_anggota']);
   ?>
   <div class="box-body">
                 <div class="form-group">
@@ -35,6 +36,8 @@ if ($row==0){
                     
                     </div>
                   </div>
+                  <td>Saldo</td>
+      <td>: <b>Rp. <?php echo number_format($saldo)?></b></td>
                 </div>
               </div>
 

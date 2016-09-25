@@ -29,8 +29,11 @@ function sisa($no) {
 function cariAnggota($noanggota) {
 		$conn = new mysqli("localhost","cas","bintang","project_koperasi");
 
-		$sql	= "SELECT *	FROM m_anggota WHERE no_anggota='$nonggota'";
+		$sql	= "SELECT *	FROM m_anggota WHERE no_anggota='$noanggota'";
 		$conn->query($sql);
+		if ($sql==FALSE) {
+			die($conn->error);
+		}
 	$data	= $sql->fetch_array();
 	$row		= $sql->num_rows;
 	if ($row>0){

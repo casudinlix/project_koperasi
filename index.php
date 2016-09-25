@@ -26,7 +26,7 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-  <link rel="shortcut icon" href="img/pp.jpg"/>
+  <link rel="shortcut icon" href="img/pip.jpg"/>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -36,7 +36,7 @@
   <!-- /.login-logo -->
 
   <div class="login-box-body">
-    <img src="img/pp.jpg" title="Powered By Rumah Kreasi" class="img-circle" height="100px" width="100px"/>
+    <img src="img/pp.png" title="Powered By Rumah Kreasi" class="" height="100px" width="100px"/>
     <p class="login-box-msg">Sign in to start your session</p>
 
     <form action="cek.php" method="post">
