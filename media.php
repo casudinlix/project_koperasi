@@ -25,7 +25,7 @@ if ($_GET['page']=="home") {
 }elseif ($_GET['page']=="transaksi-simpanan") {
 	include "modul/simpanan/simpanan.php";
 }elseif ($_GET['page']=="transaksi-penarikan") {
-	include "modul/penarikan/penarikan.php";
+	include "modul/pengambilan/pengambilan.php";
 }elseif ($_GET['page']=="laporan-tabungan") {
 	include "modul/laporan/laporan_tabungan.php";
 }elseif (expr) {

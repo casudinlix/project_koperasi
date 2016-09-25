@@ -1,10 +1,11 @@
 <?php
 function jmlBayar($no) {
-	$sql	= "SELECT sum(angsuran+bunga) as total 
-				FROM pinjaman_detail
-				WHERE id_pinjam='$no'";
-	$data	= mysql_fetch_array(mysql_query($sql));
-	$row		= mysql_num_rows(mysql_query($sql));
+	$conn = new mysqli("localhost","cas","bintang","project_koperasi");
+	$sql	= "SELECT sum(angsuran+bunga) as total FROM m_pinjaman WHERE kd_pinjam='$no'";
+	$conn->query($sql);
+	$data	= $sql->fetch_array();
+	
+	$row	= $sql->num_rows;
 	if ($row>0){
 		$hasil		= $data['total'];
 	}else{
@@ -13,11 +14,11 @@ function jmlBayar($no) {
 	return $hasil;
 }
 function sisa($no) {
-	$sql	= "SELECT sum(jumlah_bayar) as total 
-				FROM pinjaman_detail
-				WHERE id_pinjam='$no'";
-	$data	= mysql_fetch_array(mysql_query($sql));
-	$row		= mysql_num_rows(mysql_query($sql));
+	$conn = new mysqli("localhost","cas","bintang","project_koperasi");
+	$sql	= "SELECT sum(jumlah_bayar) as total FROM tt_pinjaman	WHERE kd_pinjaman='$no'";
+	$conn->query($sql);
+	$data	= $sql->fetch_array();
+	$row		= $sql->num_rows;
 	if ($row>0){
 		$hasil		= $data['total'];
 	}else{
@@ -26,13 +27,14 @@ function sisa($no) {
 	return $hasil;
 }
 function cariAnggota($noanggota) {
-	$sql	= "SELECT *
-				FROM anggota
-				WHERE noanggota='$nonggota'";
-	$data	= mysql_fetch_array(mysql_query($sql));
-	$row		= mysql_num_rows(mysql_query($sql));
+		$conn = new mysqli("localhost","cas","bintang","project_koperasi");
+
+		$sql	= "SELECT *	FROM m_anggota WHERE no_anggota='$nonggota'";
+		$conn->query($sql);
+	$data	= $sql->fetch_array();
+	$row		= $sql->num_rows;
 	if ($row>0){
-		$hasil		= $data['namaanggota'];
+		$hasil		= $data['nama_anggota'];
 	}else{
 		$hasil		= '';
 	}
@@ -52,10 +54,12 @@ function cariJenis($nojenis) {
 	return $hasil;	
 }
 function simpanan($anggota){
-	$sql	= mysql_query("SELECT sum(jumlah) as total FROM simpanan WHERE noanggota='$anggota'");
-	$row	= mysql_num_rows($sql);
+		$conn = new mysqli("localhost","cas","bintang","project_koperasi");
+
+	$sql	= $conn->query("SELECT sum(jumlah) as total FROM tt_simpanan WHERE no_anggota='$anggota'");
+	$row	= $sql->num_rows;
 	if($row>0){
-		$data = mysql_fetch_array($sql);
+		$data = $sql->fetch_array();
 		$hasil = $data['total'];
 	}else{
 		$hasil = 0;
@@ -63,10 +67,11 @@ function simpanan($anggota){
 	return $hasil;
 }
 function pengambilan($anggota){
-	$sql	= mysql_query("SELECT sum(jumlah) as total FROM pengambilan WHERE noanggota='$anggota'");
-	$row	= mysql_num_rows($sql);
+$conn = new mysqli("localhost","cas","bintang","project_koperasi");
+	$sql	= $conn->query("SELECT sum(jumlah) as total FROM tt_pengambilan WHERE no_anggota='$anggota'");
+	$row	= $sql->num_rows;
 	if($row>0){
-		$data = mysql_fetch_array($sql);
+		$data = $sql->fetch_array();
 		$hasil = $data['total'];
 	}else{
 		$hasil = 0;
@@ -80,15 +85,12 @@ function saldo($anggota) {
 	return $saldo;
 }
 function sisaAngsuran($anggota){
-	$sql	= mysql_query("select b.noanggota,sum(a.angsuran+a.bunga) as total
-			from pinjaman_detail as a
-			join pinjaman_header as b
-			ON a.id_pinjam=b.id_pinjam
-			WHERE jumlah_bayar=0 AND noanggota='$anggota'
-			GROUP BY b.noanggota");
-	$row	= mysql_num_rows($sql);
+	$conn = new mysqli("localhost","cas","bintang","project_koperasi");
+	$sql	= $conn->query("SELECT b.no_anggota,sum(a.angsuran+a.bunga) as total FROM tt_pinjaman as a join m_pinjaman as b	ON a.kd_pinjaman=b.kd_pinjaman	WHERE jumlah_bayar=0 AND no_anggota='$anggota'
+			GROUP BY b.no_anggota");
+	$row	= $sql->num_rows;
 	if($row>0){
-		$data = mysql_fetch_array($sql);
+		$data = $sql->fetch_array();
 		$hasil = $data['total'];
 	}else{
 		$hasil = 0;
@@ -97,11 +99,12 @@ function sisaAngsuran($anggota){
 }
 
 function cariNama($nomor){
-	$s = mysql_query("SELECT * FROM anggota WHERE noanggota='$nomor'");
-	$r = mysql_num_rows($s);
+	$conn = new mysqli("localhost","cas","bintang","project_koperasi");
+	$s = $conn->query("SELECT * FROM m_anggota WHERE no_anggota='$nomor'");
+	$r = $s->num_rows();
 	if($r>0){
-		$d = mysql_fetch_array($s);
-		$hasil = $d['namaanggota'];
+		$d = $s->fetch_array();
+		$hasil = $d['nama_anggota'];
 	}else{
 		$hasil = '';
 	}

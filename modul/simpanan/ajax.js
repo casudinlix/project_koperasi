@@ -2,7 +2,7 @@
 $(document).ready(function(){
 	$(function(){
 		$('button').hover(
-			function() { $(this).addClass('ui-state-hover'); }, 
+			function() { $(this).addClass('ui-state-hover'); },
 			function() { $(this).removeClass('ui-state-hover'); }
 		);
 	});
@@ -14,19 +14,19 @@ $(document).ready(function(){
 	$('#tabs').tabs();
 	*/
 	$("#tgl").datepicker({
-			dateFormat:"dd-mm-yy"        
+			dateFormat:"dd-mm-yy"
     });
 	$("#tgl1").datepicker({
-			dateFormat:"dd-mm-yy"        
+			dateFormat:"dd-mm-yy"
     });
 	$("#tgl2").datepicker({
-			dateFormat:"dd-mm-yy"        
+			dateFormat:"dd-mm-yy"
     });
-	
-	$("#jml").keypress(function (data)  { 
+
+	$("#jml").keypress(function (data)  {
 		if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57)){
 	          return false;
-		}	
+		}
 	});
 	$("#simpan").click(function(){
 		simpan();
@@ -37,9 +37,9 @@ $(document).ready(function(){
 		var jenis	= $("#jenis").val();
 		var jml		= $("#jml").val();
 		var info_anggota = $("#info_anggota").html();
-	
+
 		//alert(info_anggota.length);
-		
+
 		if(no.length==0){
 			alert('Maaf, Nomor Anggota tidak boleh kosong');
 			$("#nomor").focus();
@@ -65,7 +65,7 @@ $(document).ready(function(){
 			$("#jml").focus();
 			return false();
 		}
-		
+
 		$.ajax({
 			type	: "POST",
 			url		: "modul/simpanan/simpan.php",
@@ -80,12 +80,12 @@ $(document).ready(function(){
 			}
 		});
 	}
-	
+
 	function cariID(){
 	$.ajax({
 			type	: "POST",
 			url		: "modul/simpanan/cari_id.php",
-			dataType : "json",				  
+			dataType : "json",
 			success	: function(data){
 				$("#id").val(data.id);
 				//alert('ID '+data.id);
@@ -102,6 +102,7 @@ $(document).ready(function(){
 	})
 	$("#no").keyup(function(){
 		var cari = $("#no").val();
+		
 		cariAnggota(cari);
 		cariSimpananAnggota(cari);
 	})
@@ -116,6 +117,7 @@ $(document).ready(function(){
 			}
 		});
 	}
+
 	function cariSimpananAnggota(e){
 		var cari = e;
 		$.ajax({
@@ -131,7 +133,7 @@ $(document).ready(function(){
 		var cari = $("#jenis").val();
 		cariJenis(cari);
 	})
-	
+
 	function cariJenis(e){
 		var cari = e;
 		$.ajax({
@@ -144,11 +146,11 @@ $(document).ready(function(){
 			}
 		});
 	}
-	
+
 	$("#cari2").click(function(){
 		var tgl1 = $("#tgl1").val();
 		var tgl2 = $("#tgl2").val();
-		
+
 		if(tgl1.length==0){
 			alert('Maaf, Tanggal tidak boleh kosong');
 			$("#tgl1").focus();
@@ -159,14 +161,14 @@ $(document).ready(function(){
 			$("#tgl2").focus();
 			return false();
 		}
-		
+
 		cariData2(tgl1,tgl2);
 	});
-	
+
 	function cariData2(e1,e2){
 		var tgl1 = e1;
 		var tgl2 = e2;
-		
+
 		$.ajax({
 			type	: "POST",
 			url		: "modul/simpanan/tampil_data2.php",
@@ -180,7 +182,7 @@ $(document).ready(function(){
 		var cari = $("#txt_cari").val();
 		cariData3(cari);
 	});
-	
+
 	function cariData3(e){
 		var cari = e;
 		$.ajax({
@@ -192,7 +194,7 @@ $(document).ready(function(){
 			}
 		});
 	}
-	
+
 	$("#cetak").click(function(){
 		var kode 	= $('#nomor').val();
 		if(kode.length==0){
@@ -200,6 +202,6 @@ $(document).ready(function(){
 			$("#nomor").focus();
 			return false();
 		}
-		window.open('modul/laporan/cetak-storan.php?kode='+kode);	
+		window.open('modul/laporan/cetak-storan.php?kode='+kode);
 	});
 });

@@ -13,7 +13,7 @@ switch ($_GET['act']) {
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title"><i class="fa fa-save"></i>Transaksi Simpanan</h3>
+              <h3 class="box-title"><i class="fa fa-save"></i>Transaksi Pengambilan</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -26,7 +26,7 @@ switch ($_GET['act']) {
 
                 <div class="form-group ui-helper-clearfix">
                   <label for="exampleInputEmail1">No anggota</label>
-                  <input type="teks" class="form-control" id="no" name="no" placeholder="Enter No Anggota" onkeyup="this.value = this.value.toUpperCase()" autocomplete="off">
+                  <input type="teks" class="form-control" id="nomor" name="nomor" placeholder="Enter No Anggota" onkeyup="this.value = this.value.toUpperCase()" autocomplete="off">
                 </div>
                 <div class="form-group">
                 <input type="hidden" name="update" value="<?php echo date('Y-m-d H:i:s');?>" placeholder="">
@@ -37,17 +37,15 @@ switch ($_GET['act']) {
                 <div class="form-group">
                   <label for="exampleInputPassword1">Jenis Simpanan</label>
                 <select class="form-control select2" style="width: 100%;" name="jenis">
-                <?php $q =$conn->query("SELECT * FROM m_jenis_simpanan"); ?>
-                  <option>Pilih</option>
+                <?php $q =$conn->query("SELECT * FROM m_jenis_simpanan WHERE nama_jenis='Tabungan'"); ?>
+
                   <?php
-                  while ($data=$q->fetch_array()) {
+                  $data=$q->fetch_array()
 
 
                      ?>
-                  <option value="<?php echo $data['kd_jenis'];?>"><?php echo $data['nama_jenis'];?></option>
-                 <?php
-               }
-                 ?>
+                  <option value="<?php echo $data['kd_jenis'];?>" READONLY><?php echo $data['nama_jenis'];?></option>
+
                 </select>
 
                 </div>
@@ -107,10 +105,9 @@ if ($insert==FALSE) {
               <!-- /.box-body -->
 
             </form>
-            <div id="saldo"> </div>
           </div>
 
-            <div id="tampil_simpanan">
+            <div id="saldo">
 
             </div>
 

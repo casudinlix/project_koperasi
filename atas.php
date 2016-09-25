@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="<?php echo $url;?>css/dataTables.bootstrap.css"/>
   <!-- Font Awesome -->
   <script language="javascript" src="modul/simpanan/ajax.js"></script>
+  <script language="javascript" src="modul/pengambilan/ajax.js"></script>
   <link rel="stylesheet" href="<?php echo $url;?>css/font-awesome.min.css">
   <!-- Ionicons -->
 
@@ -49,7 +50,7 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-  
+
 });
 </script>
   <link rel="stylesheet" href="<?php echo $url;?>plugins/datepicker/datepicker3.css">

@@ -33,7 +33,7 @@ $pdf->Image("../../img/pp.jpg",170,10,25,45);
 //$pdf->addClient($nama);
 //$pdf->addPageNumber("1");
 //$pdf->addClientAdresse("Ste\nM. XXXX\n3ème étage\n33, rue d'ailleurs\n75000 PARIS");
-$pdf->addReglement($_SESSION['nama']);
+$pdf->addReglement($_SESSION['nama_kita']);
 $pdf->addEcheance(tgl_indo(date("Y m d")));
 $pdf->addNumTVA($nama."-".$d['no_anggota']);
 

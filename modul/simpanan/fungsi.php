@@ -2,10 +2,10 @@
 
 function random_char( $panjang ) {
 	$karakter = 'TS.';
-	
+
 	for ( $i = 0; $i < $panjang; $i++ ) {
 		$pos = strlen( $karakter ) - 2 ;
-		$string .= $karakter{$pos};
+		
 	}
 return $karakter;
 }

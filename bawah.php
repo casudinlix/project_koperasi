@@ -99,16 +99,16 @@ return '<a href="?page=anggota&act=detail&id='+ data +'" ><i class=\'fa fa-eye f
                 {"data": "no_anggota"},
                 {"data": "no_ktp"},
                 {"data": "nama_anggota"},
-                
-                
-                
+
+
+
                 {"data": "alamat"},
                 {"data": "status"},
                 {"data": "no_anggota",
                 "width": "100px",
                 "sClass": "text-center",
                 "orderable": false,"mRender": function (data) {
-return '<a href="?page=laporan-tabungan&act=ditel&id='+ data +'" ><i class=\'fa fa-book fa-lg\' title=\'Detail\'></i></a>';
+return '<a href="modul/laporan/cetak_tabungan1.php?id='+ data +'" target=\'_blank\'><i class=\'fa fa-print fa-lg\' title=\'Cetak\'></i></a>';
   }
   }
               ],
