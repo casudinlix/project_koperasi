@@ -7,7 +7,7 @@ include "../../server/tgl.php";
 require('../../pdf/invoice.php');
 include "../../server/all.php";
 session_start();
-$pdf = new PDF_Invoice( 'P', 'mm', 'A4' );
+
 $profil =$conn->query("SELECT * FROM profil");
 $data=$profil->fetch_array();
 
@@ -15,15 +15,21 @@ $kode	= $_GET['id'];
 $where	= " WHERE no_anggota ='$kode'";
 $q = $conn->query("SELECT * FROM tt_simpanan $where");
 $row = $q->num_rows;
-if($row>0){
+if($row ==0){
 
+echo "<script>
+  alert('No Data');
+  window.location.href = 'cetak_tabungan.php';
+  </script>";
+}
+$pdf = new PDF_Invoice( 'P', 'mm', 'A4' );
 $q	= $conn->query("SELECT * FROM m_anggota WHERE no_anggota='$kode'");
 $d 	= $q->fetch_array();
 $nama 	= $d['nama_anggota'];
 
 
  
-}
+
 
 $pdf->AddPage();
 $pdf->addSociete( $data['koperasi'],"Alamat:\n" .$data['alamat']."\n"."Kota :".$data['kota']);
@@ -87,7 +93,7 @@ $pdf->SetFont('Arial','B',10);
 //ini buat pengulangan
 	}
 
-$pdf->addCadreEurosFrancs();
+//$pdf->addCadreEurosFrancs();
 	//$pdf->addCadreTVAs();
 
 

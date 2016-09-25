@@ -9,85 +9,20 @@ $pdf = new PDF_Invoice( 'P', 'mm', 'A4' );
 $profil =$conn->query("SELECT * FROM profil");
 $data=$profil->fetch_array();
 
-$kode	= $_GET['id'];
-$where	= " WHERE no_anggota ='$kode'";
-$q = $conn->query("SELECT * FROM tt_simpanan $where");
-$row = $q->num_rows;
-if($row>0){
 
-$q	= $conn->query("SELECT * FROM m_anggota WHERE no_anggota='$kode'");
-$d 	= $q->fetch_array();
-$nama 	= $d['nama_anggota'];
-
-
-$judul_H = "CETAK REKENING ANGGOTA<br>";
-$judul_H .= "NOMOR. $kode<br>";
-$judul_H .= "$nama<br>";
-}
 
 $pdf->AddPage();
 $pdf->addSociete( $data['koperasi'],"Alamat:\n" .$data['alamat']."\n"."Kota :".$data['kota']);
 //$pdf->fact_dev( "Buku ", "Tabungan" );
-$pdf->temporaire( "Rumah Kreasi" );
+$pdf->temporaire( "No Data Found" );
 
 //$pdf->addClient($nama);
 //$pdf->addPageNumber("1");
 //$pdf->addClientAdresse("Ste\nM. XXXX\n3ème étage\n33, rue d'ailleurs\n75000 PARIS");
-$pdf->addReglement($_SESSION['nama']);
-$pdf->addEcheance(tgl_indo(date("Y m d")));
-$pdf->addNumTVA($nama."-".$d['no_anggota']);
-$pdf->addReference("Devis ... du ....");
-$cols=array( "Tanggal"    => 23,
-             "Jenis"  => 78,
-             "Debit"     => 22,
-             "Kredit"      => 26,
-             "Saldo" => 30
-              );
-$pdf->addCols( $cols);
-$cols=array( "Tanggal"    => "L",
-             "Jenis"  => "L",
-             "Debit"     => "C",
-             "Kredit"      => "R",
-             "Saldo" => "R"
-             );
-$pdf->addLineFormat( $cols);
-$pdf->addLineFormat($cols);
-
- $query = $conn->query("SELECT kd_simpanan as id,tgl,no_anggota,kd_jenis,jumlah,user,'simpan' as ket,tgl_update FROM tt_simpanan
- 		$where
- 		UNION
- 		SELECT kd_pengambilan as id, tgl,no_anggota,kd_jenis,jumlah,user,'tarik tunai' as ket,tgl_update FROM tt_pengambilan
- 		$where
- 		order by tgl_update");
-
-
- $no=1;
-	$page =1;
-	$saldo=0;
-	while($r_data=$query->fetch_array()){
-	$tgl = tgl_indo($r_data['tgl']);		
-	$jenis = $r_data['kd_jenis'];
-	$ket = $r_data['ket'];
-$y    = 109;
-	if($ket=='simpan'){
-		$debet = $r_data['jumlah'];
-		$kredit= 0;
-	}else{
-		$debet=0;
-		$kredit = $r_data['jumlah'];
-	}
-	$saldo = ($saldo+$debet)-$kredit;
-	
-	
-$line = array( "Tanggal"    => $tgl,
-               "Jenis"  => $r_data['ket'],
-               "Debit"     => "Rp.".number_format($debet),
-               "Kredit"      => "Rp.".number_format($kredit),
-               "Saldo" => "Rp.".number_format($saldo)
-              );
-
-$size = $pdf->addLine( $y, $line );
-	}
+//$pdf->addReglement($_SESSION['nama']);
+//$pdf->addEcheance(tgl_indo(date("Y m d")));
+//$pdf->addNumTVA($nama."-".$d['no_anggota']);
+//$pdf->addReference("Devis ... du ....");
 
 
 	$pdf->addCadreTVAs();
