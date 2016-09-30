@@ -14,7 +14,7 @@ switch ($_GET['act']) {
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title"><i class="fa fa-save"></i>Transaksi Pengambilan</h3>
+              <h3 class="box-title"><i class="fa fa-save"></i>Transaksi Pinjaman</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -53,8 +53,8 @@ switch ($_GET['act']) {
                 <div class="form-group">
                   <label for="exampleInputPassword1">Jumlah Penarikan</label>
                   <input type="text" class="form-control" id="" placeholder="" name="jml">
-                  <input type="hidden" name="xx" id="saldo" value="">
-                   
+                  <input type="text" name="xx" id="saldo" value="">
+                  <input type="text" value="">
                 </div>
 
                 <input type="hidden" name="user" value="<?php echo $_SESSION['nama'];?>">

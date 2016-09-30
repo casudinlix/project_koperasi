@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="<?php echo $url;?>css/dataTables.bootstrap.css"/>
   <!-- Font Awesome -->
   <script language="javascript" src="modul/simpanan/ajax.js"></script>
+  <script language="javascript" src="modul/pinjaman/ajax.js"></script>
   <script language="javascript" src="modul/pengambilan/ajax.js"></script>
   <link rel="stylesheet" href="<?php echo $url;?>css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -150,7 +151,7 @@ $(document).ready(function(){
           <ul class="treeview-menu">
             <li><a href="?page=transaksi-simpanan"><i class="fa fa-money"></i> Simpananan</a></li>
             <li><a href="?page=transaksi-penarikan"><i class="fa fa-gift"></i> Penarikan</a></li>
-            <li><a href="../layout/fixed.html"><i class="fa fa-credit-card"></i> Pinjaman</a></li>
+            <li><a href="?page=transaksi-pinjaman"><i class="fa fa-credit-card"></i> Pinjaman</a></li>
             <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-cc-amex"></i> Bayar Pinjaman</a></li>
           </ul>
         </li>

@@ -48,13 +48,18 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>44</h3>
+            <?php 
+            $data=$conn->query("SELECT * FROM m_anggota");
+$j=$data->num_rows;
 
-              <p>User Registrations</p>
+            ?>
+              <h3><?php echo $j;?></h3>
+
+              <p>Jumlah Anggota Aktiv</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="media.php?page=anggota" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
