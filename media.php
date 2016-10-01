@@ -11,7 +11,7 @@ include "server/tgl.php";
 echo "<!DOCTYPE html>
 <html>";
 //error_reporting(0);
-//error_reporting(E_ALL ^ E_NOTICE);
+error_reporting(E_ALL ^ E_NOTICE);
 include "atas.php";
 
 if ($_GET['page']=="home") {
@@ -33,8 +33,10 @@ if ($_GET['page']=="home") {
 	include "modul/config/profil.php";
 }elseif ($_GET['page']=="transaksi-pinjaman") {
 	include "modul/pinjaman/pinjaman.php";
-}elseif (expr) {
-	
+}elseif ($_GET['page']=="jurnal") {
+	include "modul/akutansi/jurnal/jurnal.php";
+}elseif (condition) {
+	# code...
 }
 ?>
 

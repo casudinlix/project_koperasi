@@ -125,3 +125,46 @@ return '<a href="modul/laporan/cetak_tabungan1.php?id='+ data +'" target=\'_blan
     });
 
 </script>
+<script>
+    $(document).ready(function () {
+        var t = $('#jurnal').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": 'modul/akutansi/jurnal/ajax.php',
+
+            "order": [[2, 'asc']],
+            "columns": [
+              {"data": null,
+         "width": "30px",
+         "sClass": "text-center",
+         "orderable": true,
+      },
+                {"data": "tanggal_transaksi"},
+                {"data": "kode_transaksi"},
+                {"data": "kode_rekening"},
+               
+                {"data": "keterangan_transaksi"},
+                {"data": "debet"},
+                {"data": "kredit"},
+                
+                {"data": "id_transaksi",
+                "width": "100px",
+                "sClass": "text-center",
+                "orderable": false,"mRender": function (data) {
+return '<a href="?page=anggota&act=detail&id='+ data +'" ><i class=\'fa fa-eye fa-lg\' title=\'Detail\'></i></a>\n\<a href="?page=anggota&act=edit&id='+ data +'" ><i class=\'fa fa-edit fa-lg\' title=\'EDIT\'></i></a> \n\<a href="?page=anggota&act=delete&id='+ data +'" onclick="javascript:return confirm(\'Anda yakin?\');"><i class=\'fa fa-trash fa-lg\' title=\'DELETE\'></i></a>';
+  }
+  }
+              ],
+
+              });
+              t.on( 'order.dt search.dt', function () {
+                    t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                        cell.innerHTML = i+1;
+                    } );
+                } ).draw();
+            } );
+            $('#datepicker').datepicker({
+      autoclose: true
+    });
+
+</script>
